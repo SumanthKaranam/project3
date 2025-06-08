@@ -1,0 +1,33 @@
+<mat-card class="chart-tab-card mat-elevation-z4">
+  <mat-tab-group animationDuration="400ms" class="custom-tab-group">
+    
+    <!-- Bar Chart Tab -->
+    <mat-tab label="Bar Chart">
+      <div class="canvas-wrapper">
+        <canvas baseChart
+                [data]="{
+                  labels: barChartLabels,
+                  datasets: [{ data: barChartData, label: 'Price', backgroundColor: '#4caf50' }]
+                }"
+                [options]="barChartOptions"
+                [type]="'bar'">
+        </canvas>
+      </div>
+    </mat-tab>
+
+    <!-- Pie Chart Tab -->
+    <mat-tab label="Pie Chart">
+      <div class="canvas-wrapper">
+        <canvas baseChart
+                [data]="{
+                  labels: pieChartLabels,
+                  datasets: [{ data: pieChartData, backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#81c784', '#ba68c8'] }]
+                }"
+                [options]="pieChartOptions"
+                [type]="'pie'">
+        </canvas>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</mat-card>

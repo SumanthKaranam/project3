@@ -1,0 +1,36 @@
+<div class="product-cards" [@cardAnimation]>
+  <mat-card *ngFor="let product of products" class="product-card mat-elevation-z4">
+    <img mat-card-image [src]="product.images[0]" [alt]="product.title" />
+
+    <mat-card-title>{{ product.title }}</mat-card-title>
+
+    <mat-card-content class="product-details">
+      <p class="price">${{ product.price }}</p>
+
+      <!-- Add to Cart Button -->
+      <button *ngIf="getQuantity(product) === 0"
+              mat-raised-button color="primary"
+              (click)="addToCart(product)">
+        Add to Cart
+      </button>
+
+      <!-- Quantity Controls -->
+      <div *ngIf="getQuantity(product) > 0" class="quantity-controls">
+        <button mat-mini-fab color="primary" (click)="decrease(product)">
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <span class="quantity">{{ getQuantity(product) }}</span>
+
+        <button mat-mini-fab color="primary" (click)="increase(product)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <!-- Out of Stock -->
+      <div class="stock-message" *ngIf="messages[product.id]" style="color: red;">
+        {{ messages[product.id] }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

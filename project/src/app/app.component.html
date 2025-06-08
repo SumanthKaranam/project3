@@ -1,0 +1,23 @@
+<!-- app.component.html -->
+<div class="app-container mat-typography">
+  <app-header (toggleSidenav)="sidenav.toggle()" [cartCount]="cartCount"></app-header>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #sidenav
+      [mode]="isSmallScreen ? 'over' : 'side'"
+      [opened]="!isSmallScreen"
+    >
+      <div @slideFade>
+        <app-sidebar></app-sidebar>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="dashboard-wrapper">
+        <!-- Routed views go here -->
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

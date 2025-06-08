@@ -1,0 +1,18 @@
+.chart-tab-card {
+  margin: 24px;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.canvas-wrapper {
+  height: 400px;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
