@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: angular-app
+    env: static
+    staticPublishPath: dist/project
+    buildCommand: npm install && npm run build -- --configuration=production
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
